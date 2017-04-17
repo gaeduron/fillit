@@ -6,14 +6,13 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 09:49:13 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/17 10:24:19 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/17 12:13:23 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
-
-
+# define ABS(value) value < 0 ? -value : value
 typedef struct	s_tmino
 {
 	char		**str;
@@ -23,7 +22,6 @@ typedef struct	s_tmino
 	int			best_y;
 
 }				t_tmino;
-
 
 typedef struct	s_env
 {
