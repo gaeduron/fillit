@@ -6,38 +6,58 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 10:47:31 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/17 12:13:19 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/18 09:49:43 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 
+static int	pos_x(t_tmino *prev, t_tmino *curr, int offset_x, int offset_y)
+{
+	int		i;
+
+	i = 0;
+	while (i < ABS(offset_x) || i < ABS(offset_y))
+	{
+		if (offset_y >= 0) //prev->str[i + y][i + x]
+		{
+			
+		}
+		if (offset_y < 0) //pre
+		{
+			
+		}
 
 
 
+
+
+
+
+
+
+
+		i++;
+	}
+}
+
+static int	neg_x(t_tmino *prev, t_tmino *curr, int offset_x, int offset_y)
+{
+
+}
 
 static int	collide(t_tmino *prev, t_tmino *curr, int offset_x, int offset_y)
 {
-	if (offset_x >= 0)
-	{
-		if (offset_y >= 0)
-			return ();
-		if (offset_y < 0)
-			return ();
-	}
-	if (offset_x < 0)
-	{
-		if (offset_y >= 0)
-		{
+	curr->from_y = (offset_y >= 0 ? 0 : -offset_y);
+	prev->from_y = (offset_y >= 0 ? -offset_y : 0);
+	curr->from_x = (offset_x >= 0 ? 0 : -offset_x);
+	prev->from_x = (offset_x >= 0 ? -offset_x : 0);
+	curr->to_y = (offset_y >= 0 ? 3 - offset_y : offset_y);
+	prev->to_y = (offset_y >= 0 ? offset_y : 3 - offset_y);
+	curr->to_x = (offset_x >= 0 ? 3 - offset_x : offset_x);
+	prev->to_x = (offset_x >= 0 ? offset_x : 3 - offset_x);
 
-
-		}
-		if (offset_y < 0)
-		{
-		
-		
-		}
-	}
+	return (neg_x(prev, curr, offset_x, offset_y));
 }
 
 int			no_collision(t_tmino **tab_tmino, int pos)
