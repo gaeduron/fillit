@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_t_tmino.c                                     :+:      :+:    :+:   */
+/*   do_fillit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/18 13:01:44 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 14:34:02 by gduron           ###   ########.fr       */
+/*   Created: 2017/04/18 15:16:37 by gduron            #+#    #+#             */
+/*   Updated: 2017/04/18 20:17:41 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_tmino		*init_t_tmino(char **str)
+void	do_fillit(int fd)
 {
-	t_tmino *elem;
+	char	*input_str;
+	t_env	*env;
 
-	if (!(elem = (t_tmino*)malloc(sizeof(t_tmino))))
-		return (0);
-	elem->str = ft_strsplit(str, '\n');
-	elem->x = 0;
-	elem->y = 0;
-	elem->best_x = 0;
-	elem->best_y = 0;
-	elem->i_x = 0;
-	elem->i_y = 0;
-	elem->offset_x = 0;
-	elem->offset_y = 0;
-	return (elem);
+	input_str = read_file_desctriptor(fd);
+	if (!(input_str) || *input_str == '\0')
+	{
+		write(1, "error\n", 6);
+		return ;
+	}
+	if (!(env = init_t_env(input_str)))
+	{
+		write(1, "error\n", 6);
+		return ;
+	}
+	free(input_str);
+//	ft_searching(env);
+//	write_t_tmino(env);
+//	print_grid(env);
+//	free_env(env);
+	printf("\n\n____\n%s\n", env->tab_tmino[0]->str[0]);
+	return ;
 }

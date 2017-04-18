@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_t_tmino.c                                     :+:      :+:    :+:   */
+/*   files_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/18 13:01:44 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 14:34:02 by gduron           ###   ########.fr       */
+/*   Created: 2017/03/28 17:12:24 by gduron            #+#    #+#             */
+/*   Updated: 2017/04/18 15:15:33 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_tmino		*init_t_tmino(char **str)
+void	open_file(char *file_name)
 {
-	t_tmino *elem;
+	int fd;
 
-	if (!(elem = (t_tmino*)malloc(sizeof(t_tmino))))
-		return (0);
-	elem->str = ft_strsplit(str, '\n');
-	elem->x = 0;
-	elem->y = 0;
-	elem->best_x = 0;
-	elem->best_y = 0;
-	elem->i_x = 0;
-	elem->i_y = 0;
-	elem->offset_x = 0;
-	elem->offset_y = 0;
-	return (elem);
+	fd = open(file_name, O_RDONLY);
+	if (fd == -1)
+	{
+		write(1, "error\n", 6);
+		return ;
+	}
+	do_fillit(fd);
+	close(fd);
+}
+
+void	files_manager(int ac, char **av)
+{
+	int i;
+
+	i = 1;
+	while (i < ac)
+		open_file(av[i++]);
 }

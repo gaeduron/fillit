@@ -5,15 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/17 09:28:27 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/17 09:31:11 by gduron           ###   ########.fr       */
+/*   Created: 2017/03/28 17:07:24 by gduron            #+#    #+#             */
+/*   Updated: 2017/04/18 15:44:28 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "fillit.h"
 
-int		main()
+int		main(int ac, char **av)
 {
-	ft_putstr("coucou\n");
+	if (ac == 2)
+		files_manager(ac, av);
+	else
+		write(2, "usage: ./fillit source_file\n", 28);
 	return (0);
 }
