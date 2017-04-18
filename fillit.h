@@ -12,7 +12,6 @@
 
 #ifndef FILLIT_H
 # define FILLIT_H
-# define ABS(value) value < 0 ? -value : value
 typedef struct	s_tmino
 {
 	char		**str;
