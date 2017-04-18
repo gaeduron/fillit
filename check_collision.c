@@ -6,58 +6,43 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 10:47:31 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 09:49:43 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/18 10:50:50 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fillit.h"
 
-
-static int	pos_x(t_tmino *prev, t_tmino *curr, int offset_x, int offset_y)
+static int	check_inter(t_tmino *prev, t_tmino *curr)
 {
 	int		i;
+	int		j;
 
 	i = 0;
-	while (i < ABS(offset_x) || i < ABS(offset_y))
+	j = 0;
+	while (i <= prev->offset_x && j <= prev->offset_y)
 	{
-		if (offset_y >= 0) //prev->str[i + y][i + x]
+		if (i > prev->offset_x && j < prev->offset_y)
 		{
-			
+			i = 0;
+			j++;
 		}
-		if (offset_y < 0) //pre
-		{
-			
-		}
-
-
-
-
-
-
-
-
-
-
-		i++;
+		if (prev->str[prev->i_y + j][prev->i_x + i] ==\
+				curr->str[curr->i_y + j][curr->i_x + i] \
+				&& curr->str[curr->i_y + j][curr->i_x + i] == '#')
+			return (1);
 	}
-}
-
-static int	neg_x(t_tmino *prev, t_tmino *curr, int offset_x, int offset_y)
-{
-
+	return (0);
 }
 
 static int	collide(t_tmino *prev, t_tmino *curr, int offset_x, int offset_y)
 {
-	curr->from_y = (offset_y >= 0 ? 0 : -offset_y);
-	prev->from_y = (offset_y >= 0 ? -offset_y : 0);
-	curr->from_x = (offset_x >= 0 ? 0 : -offset_x);
-	prev->from_x = (offset_x >= 0 ? -offset_x : 0);
-	curr->to_y = (offset_y >= 0 ? 3 - offset_y : offset_y);
-	prev->to_y = (offset_y >= 0 ? offset_y : 3 - offset_y);
-	curr->to_x = (offset_x >= 0 ? 3 - offset_x : offset_x);
-	prev->to_x = (offset_x >= 0 ? offset_x : 3 - offset_x);
-
-	return (neg_x(prev, curr, offset_x, offset_y));
+	curr->i_y = (offset_y >= 0 ? 0 : -offset_y);
+	prev->i_y = (offset_y >= 0 ? -offset_y : 0);
+	curr->i_x = (offset_x >= 0 ? 0 : -offset_x);
+	prev->i_x = (offset_x >= 0 ? -offset_x : 0);
+	prev->offset_y = (offset_y < 0 ? -offset_y : offset_y);
+	prev->offset_x = (offset_x < 0 ? -offset_x : offset_x);
+	return (check_inter(prev, curr));
 }
 
 int			no_collision(t_tmino **tab_tmino, int pos)
@@ -71,12 +56,12 @@ int			no_collision(t_tmino **tab_tmino, int pos)
 	{
 		offset_x = tab_tmino[pos]->x - tab_tmino[i]->x;
 		offset_y = tab_tmino[pos]->y - tab_tmino[i]->y;
-		if (ABS(tab_tmino[i]->x - tab_tmino[pos]->x) > 3)
-			return (0);
-		if (ABS(tab_tmino[i]->y - tab_tmino[pos]->y) > 3)
-			return (0);
+		if ((offset_x < 0 ? -offset_x : offset_x) > 3)
+			return (1);
+		if ((offset_x < 0 ? -offset_y : offset_y) > 3)
+			return (1);
 		if (collide(tab_tmino[i], tab_tmino[pos], offset_x, offset_y))
-			return(0);
+			return (0);
 		i++;
 	}
 	return (1);
