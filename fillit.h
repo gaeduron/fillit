@@ -6,13 +6,12 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 09:49:13 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 09:49:33 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/18 10:02:11 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
-# define ABS(value) value < 0 ? -value : value
 typedef struct	s_tmino
 {
 	char		**str;
