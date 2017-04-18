@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 09:49:13 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 10:49:35 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/18 11:40:09 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,7 @@ typedef struct	s_env
 	int			grid_size;
 	int			min_size;
 }				t_env;
+
+void	print_grid(t_env *env);
+void	print_tab(char **tab);
 #endif
