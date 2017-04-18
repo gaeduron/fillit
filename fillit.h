@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 09:49:13 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 10:02:11 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/18 10:49:35 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ typedef struct	s_tmino
 	int			y;
 	int			best_x;
 	int			best_y;
-	int			from_x;
-	int			from_y;
-	int			to_x;
-	int			to_y;
+	int			i_x;
+	int			i_y;
+	int			offset_x;
+	int			offset_y;
 }				t_tmino;
 
 typedef struct	s_env
