@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 10:47:31 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/19 10:00:48 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/19 14:04:39 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	collide(t_tmino *prev, t_tmino *curr, int offset_x, int offset_y)
 	return (check_inter(prev, curr));
 }
 
-int			no_collision(t_tmino **tab_tmino, int pos)
+int			no_collision(t_tmino **tab_tmino, int pos, int size)
 {
 	int i;
 	int offset_x;
@@ -62,6 +62,8 @@ int			no_collision(t_tmino **tab_tmino, int pos)
 	{
 		offset_x = tab_tmino[pos]->x - tab_tmino[i]->x;
 		offset_y = tab_tmino[pos]->y - tab_tmino[i]->y;
+		if (out_of_the_grid(tab_tmino[pos], size))
+			return (0);
 		if ((offset_x < 0 ? -offset_x : offset_x) > 3)
 			return (1);
 		if ((offset_x < 0 ? -offset_y : offset_y) > 3)
