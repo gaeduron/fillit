@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 15:16:37 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 20:17:41 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/19 10:28:34 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	do_fillit(int fd)
 {
 	char	*input_str;
 	t_env	*env;
+	int		i;
 
+	i = -1;
 	input_str = read_file_desctriptor(fd);
 	if (!(input_str) || *input_str == '\0')
 	{
@@ -33,6 +35,11 @@ void	do_fillit(int fd)
 //	write_t_tmino(env);
 //	print_grid(env);
 //	free_env(env);
-	printf("\n\n____\n%s\n", env->tab_tmino[0]->str[0]);
+		while (env->tab_tmino[++i])
+	{
+		printf("\nI am in the right place ? %d\n____", no_collision(env->tab_tmino, i));
+		printf("\n");
+		ft_putchartab(env->tab_tmino[i]->str, 't');
+	}
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 10:47:31 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 10:50:50 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/19 10:00:48 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,21 @@ static int	check_inter(t_tmino *prev, t_tmino *curr)
 
 	i = 0;
 	j = 0;
-	while (i <= prev->offset_x && j <= prev->offset_y)
+	while (i <= (3 - prev->offset_x) && j <= (3 - prev->offset_y))
 	{
-		if (i > prev->offset_x && j < prev->offset_y)
+		if (prev->str[prev->i_y + j][prev->i_x + i] ==\
+				curr->str[curr->i_y + j][curr->i_x + i] \
+				&& curr->str[curr->i_y + j][curr->i_x + i] == '#')
+		{
+			return (1);
+		}
+		i++;
+		if (i > (3 - prev->offset_x) && j < (3 - prev->offset_x))
 		{
 			i = 0;
 			j++;
 		}
-		if (prev->str[prev->i_y + j][prev->i_x + i] ==\
-				curr->str[curr->i_y + j][curr->i_x + i] \
-				&& curr->str[curr->i_y + j][curr->i_x + i] == '#')
-			return (1);
+	//	printf("\ni = %d and j = %d\n", i, j);
 	}
 	return (0);
 }
@@ -52,6 +56,8 @@ int			no_collision(t_tmino **tab_tmino, int pos)
 	int offset_y;
 
 	i = 0;
+	if (pos == 0)
+		return (1);
 	while (i < pos)
 	{
 		offset_x = tab_tmino[pos]->x - tab_tmino[i]->x;

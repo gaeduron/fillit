@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 09:49:13 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 15:41:14 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/19 09:32:16 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,6 @@ t_tmino	*init_t_tmino(char **str);
 void	files_manager(int ac, char **av);
 void	do_fillit(int fd);
 char	*read_file_desctriptor(int fd);
+void	ft_putchartab(char **tab, char format);
+int		no_collision(t_tmino **tab_tmino, int pos);
 #endif
