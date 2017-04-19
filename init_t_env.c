@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_t_env.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/28 17:07:24 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 15:44:28 by gduron           ###   ########.fr       */
+/*   Created: 2017/04/18 13:22:30 by gduron            #+#    #+#             */
+/*   Updated: 2017/04/18 15:43:33 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		main(int ac, char **av)
+t_env	*init_t_env(char *input_str)
 {
-	if (ac == 2)
-		files_manager(ac, av);
-	else
-		write(2, "usage: ./fillit source_file\n", 28);
-	return (0);
+	t_env	*env;
+
+	if (!(env = (t_env*)malloc(sizeof(t_env))))
+		return (0);
+	if (!(env->tab_tmino = str_to_tab_tmino(input_str)))
+		return (0);
+	env->grid = 0;
+	env->grid_size = 4;
+	return (env);
 }

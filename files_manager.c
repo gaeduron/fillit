@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   files_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/28 17:07:24 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 15:44:28 by gduron           ###   ########.fr       */
+/*   Created: 2017/03/28 17:12:24 by gduron            #+#    #+#             */
+/*   Updated: 2017/04/18 15:15:33 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		main(int ac, char **av)
+void	open_file(char *file_name)
 {
-	if (ac == 2)
-		files_manager(ac, av);
-	else
-		write(2, "usage: ./fillit source_file\n", 28);
-	return (0);
+	int fd;
+
+	fd = open(file_name, O_RDONLY);
+	if (fd == -1)
+	{
+		write(1, "error\n", 6);
+		return ;
+	}
+	do_fillit(fd);
+	close(fd);
+}
+
+void	files_manager(int ac, char **av)
+{
+	int i;
+
+	i = 1;
+	while (i < ac)
+		open_file(av[i++]);
 }
