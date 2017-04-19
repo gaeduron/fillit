@@ -6,19 +6,19 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 18:01:15 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/18 15:01:51 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/19 18:11:55 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../fillit.h"
 
 int		nb_mino(char *str)
 {
 	int nb;
 	int mino;
 
-	nb = 1;
-	mino = 0;
+	nb = 0;
+	mino = 1;
 	while (*str)
 	{
 		if (*str == '\n')
@@ -33,7 +33,7 @@ int		nb_mino(char *str)
 	}
 	return (mino);
 }
-
+/*
 void	write_mino(t_tmino *mino, char **grid)
 {
 	char **ptr;
@@ -84,4 +84,4 @@ t_tmino	**str_to_tab_tmino(char *str)
 	tab_t_tmino = init_tab_tmino(tab, mino_nbr);
 	free(str);
 	return (tab_t_tmino);
-}
+}*/

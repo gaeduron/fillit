@@ -6,18 +6,12 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 17:54:32 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/19 13:31:12 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/04/19 19:44:15 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fillit.h"
 #include <stdio.h>
-#define MINO1 mino->pos1
-#define MINO2 mino->pos2
-#define MINO3 mino->pos3
-#define MINO4 mino->pos4
-
-/* figure en T*/
 
 int		template_T(t_valid *mino)
 {
@@ -39,8 +33,6 @@ int		template_T(t_valid *mino)
 		return (1);
 	return (0);
 }
-
-/*figure en L-1*/
 
 int		template_L1(t_valid *mino)
 {
@@ -132,18 +124,29 @@ int		template_sqrt(t_valid *mino)
 	return (0);
 }
 
-int		main(void)
+int		fun_tab(char *str)
 {
-	t_valid *mino;
+	void	*f_tab[7];
+	t_valid	*validate;
+	int		(*f)(t_valid);
+	int		i;
 
-	MINO1[0] = 0;
-	MINO1[1] = 1;
-	MINO2[0] = 1;
-	MINO2[1] = 0;
-	MINO3[0] = 2;
-	MINO3[1] = 1;
-	MINO4[0] = 3;
-	MINO4[1] = 1;
-	printf("%d", template_L2(mino));
+	if (!(validate = mino_struct(str)))
+		return (0);
+	i = 0;
+	f_tab[0] = template_T;
+	f_tab[1] = template_L1;
+	f_tab[2] = template_L2;
+	f_tab[3] = template_I;
+	f_tab[4] = template_Z1;
+	f_tab[5] = template_Z2;
+	f_tab[6] = template_sqrt;
+	while (i < 6)
+	{
+		f = f_tab[i];
+		if (f(*validate))
+			return (1);
+		i++;
+	}
 	return (0);
 }
