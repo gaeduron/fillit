@@ -6,11 +6,11 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 18:01:15 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/19 18:11:29 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/20 15:14:40 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../fillit.h"
 
 int		nb_mino(char *str)
 {
@@ -33,7 +33,7 @@ int		nb_mino(char *str)
 	}
 	return (mino);
 }
-
+/*
 void	write_mino(t_tmino *mino, char **grid)
 {
 	char **ptr;
@@ -84,4 +84,4 @@ t_tmino	**str_to_tab_tmino(char *str)
 	tab_t_tmino = init_tab_tmino(tab, mino_nbr);
 	free(str);
 	return (tab_t_tmino);
-}
+}*/

@@ -6,13 +6,19 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 09:49:13 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/20 11:33:31 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/20 15:13:02 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 # include "libft/libft.h"
+
+#define MINO1 mino->pos1
+#define MINO2 mino->pos2
+#define MINO3 mino->pos3
+#define MINO4 mino->pos4
+
 typedef struct	s_tmino
 {
 	char		**str;
@@ -36,9 +42,6 @@ typedef struct	s_env
 
 typedef struct s_valid
 {
-	int		heigh;
-	int		length;
-	char	*str;
 	int		pos1[2];
 	int		pos2[2];
 	int		pos3[2];
@@ -56,7 +59,10 @@ void	ft_searching(t_env *env);
 char	*read_file_desctriptor(int fd);
 void	ft_putchartab(char **tab, char format);
 int		no_collision(t_tmino **tab_tmino, int pos, int size);
+int		nb_mino(char *str);
+t_valid	*mino_struct(char *str);
+char	*fun_tab(char *str, char **formated);
 void	write_mino(t_tmino *mino, char **grid);
-int     init_grid(t_env *env);
-void    print_grid(t_env *env);
+int		init_grid(t_env *env);
+void	print_grid(t_env *env);
 #endif
