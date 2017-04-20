@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 18:01:15 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/18 15:01:51 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/19 18:11:29 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int		nb_mino(char *str)
 	int nb;
 	int mino;
 
-	nb = 1;
-	mino = 0;
+	nb = 0;
+	mino = 1;
 	while (*str)
 	{
 		if (*str == '\n')

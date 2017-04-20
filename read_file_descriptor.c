@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 16:24:05 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 15:53:44 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/20 14:04:29 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ unsigned char	*read_loop(unsigned char *dest, unsigned char *buff,
 	{
 		if (buff[i] != '.' && buff[i] != '#' && buff[i] != '\n')
 		{
-			printf("blem ici tema: %d\n", buff[i]);
 			return (0);
 		}
 		i++;
