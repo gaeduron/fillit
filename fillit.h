@@ -6,13 +6,14 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 09:49:13 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/20 15:13:02 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/20 17:11:14 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 # include "libft/libft.h"
+#include <stdio.h>
 
 #define MINO1 mino->pos1
 #define MINO2 mino->pos2
@@ -48,6 +49,11 @@ typedef struct s_valid
 	int		pos4[2];
 }				t_valid;
 
+
+int		template_I(t_valid *mino);
+int		template_Z1(t_valid *mino);
+int		template_Z2(t_valid *mino);
+int		template_sqrt(t_valid *mino);
 void	print_grid(t_env *env);
 void	print_tab(char **tab);
 t_tmino	**str_to_tab_tmino(char *input_str);
