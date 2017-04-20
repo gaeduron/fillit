@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 09:49:13 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/19 19:47:37 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/04/20 14:24:55 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,5 @@ void		ft_putchartab(char **tab, char format);
 int			no_collision(t_tmino **tab_tmino, int pos);
 int			nb_mino(char *str);
 t_valid		*mino_struct(char *str);
-int		fun_tab(char *str);
+char		*fun_tab(char *str, char **formated);
 #endif
