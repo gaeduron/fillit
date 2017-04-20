@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 17:54:32 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/19 19:44:15 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/04/20 10:11:42 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ int		template_T(t_valid *mino)
 {
 	if ((MINO2[0] == MINO1[0] && MINO2[1] == MINO1[1] + 1)\
 			&& (MINO3[0] == MINO1[0] && MINO3[1] == MINO1[1] + 2)\
-			&& (MINO4[0] == MINO1[0] + 1 && MINO4[1] == MINO1[1] + 3))
+			&& (MINO4[0] == MINO1[0] + 1 && MINO4[1] == MINO1[1] + 1))
 		return (1);
 	if ((MINO2[0] == MINO1[0] + 1 && MINO2[1] == MINO1[1] - 1)\
-			&& (MINO3[0] == MINO1[0] + 2 && MINO3[1] == MINO1[1])\
-			&& (MINO4[0] == MINO1[0] + 3 && MINO4[1] == MINO1[1]))
+			&& (MINO3[0] == MINO1[0] + 1 && MINO3[1] == MINO1[1])\
+			&& (MINO4[0] == MINO1[0] + 1 && MINO4[1] == MINO1[1] + 1))
 		return (1);
 	if ((MINO2[0] == MINO1[0] + 1 && MINO2[1] == MINO1[1] - 1)\
-			&& (MINO3[0] == MINO1[0] + 2 && MINO3[1] == MINO1[1])\
-			&& (MINO4[0] == MINO1[0] + 3 && MINO4[1] == MINO1[1]))
+			&& (MINO3[0] == MINO1[0] + 1 && MINO3[1] == MINO1[1])\
+			&& (MINO4[0] == MINO1[0] + 2 && MINO4[1] == MINO1[1]))
 		return (1);
 	if ((MINO2[0] == MINO1[0] + 1 && MINO2[1] == MINO1[1])\
-			&& (MINO3[0] == MINO1[0] + 2 && MINO3[1] == MINO1[1] + 1)\
-			&& (MINO4[0] == MINO1[0] + 3 && MINO4[1] == MINO1[1]))
+			&& (MINO3[0] == MINO1[0] + 1 && MINO3[1] == MINO1[1] + 1)\
+			&& (MINO4[0] == MINO1[0] + 2 && MINO4[1] == MINO1[1]))
 		return (1);
 	return (0);
 }
@@ -45,12 +45,12 @@ int		template_L1(t_valid *mino)
 			&& (MINO4[0] == MINO1[0] + 1 && MINO4[1] == MINO1[1] + 2))
 		return (1);
 	if ((MINO2[0] == MINO1[0] && MINO2[1] == MINO1[1] + 1)\
-			&& (MINO3[0] == MINO1[0] && MINO3[1] == MINO1[1])\
+			&& (MINO3[0] == MINO1[0] + 1 && MINO3[1] == MINO1[1])\
 			&& (MINO4[0] == MINO1[0] + 2 && MINO4[1] == MINO1[1]))
 		return (1);
-	if ((MINO2[0] == MINO1[0] + 1 && MINO2[1] == MINO1[1])\
-			&& (MINO3[0] == MINO1[0] && MINO3[1] == MINO1[1] + 1)\
-			&& (MINO4[0] == MINO1[0] && MINO4[1] == MINO1[1] + 2))
+	if ((MINO2[0] == MINO1[0] && MINO2[1] == MINO1[1] + 1)\
+			&& (MINO3[0] == MINO1[0] && MINO3[1] == MINO1[1] + 2)\
+			&& (MINO4[0] == MINO1[0] + 1 && MINO4[1] == MINO1[1] + 2))
 		return (1);
 	return (0);
 }
@@ -84,7 +84,7 @@ int		template_I(t_valid *mino)
 		return (1);
 	if ((MINO2[0] == MINO1[0] && MINO2[1] == MINO1[1] + 1)\
 			&& (MINO3[0] == MINO1[0] && MINO3[1] == MINO1[1] + 2)\
-			&& (MINO4[0] == MINO1[0] + 1 && MINO4[1] == MINO1[1] + 3))
+			&& (MINO4[0] == MINO1[0] && MINO4[1] == MINO1[1] + 3))
 		return (1);
 	return (0);
 }
@@ -92,8 +92,8 @@ int		template_I(t_valid *mino)
 int		template_Z1(t_valid *mino)
 {
 	if ((MINO2[0] == MINO1[0] && MINO2[1] == MINO1[1] + 1)\
-			&& (MINO3[0] == MINO1[0] + 2 && MINO3[1] == MINO1[1] + 1)\
-			&& (MINO4[0] == MINO1[0] + 2 && MINO4[1] == MINO1[1] + 2))
+			&& (MINO3[0] == MINO1[0] + 1 && MINO3[1] == MINO1[1] + 1)\
+			&& (MINO4[0] == MINO1[0] + 1 && MINO4[1] == MINO1[1] + 2))
 		return (1);
 	if ((MINO2[0] == MINO1[0] + 1 && MINO2[1] == MINO1[1] - 1)\
 			&& (MINO3[0] == MINO1[0] + 1 && MINO3[1] == MINO1[1])\
@@ -128,7 +128,7 @@ int		fun_tab(char *str)
 {
 	void	*f_tab[7];
 	t_valid	*validate;
-	int		(*f)(t_valid);
+	int		(*f)(t_valid *);
 	int		i;
 
 	if (!(validate = mino_struct(str)))
@@ -141,10 +141,10 @@ int		fun_tab(char *str)
 	f_tab[4] = template_Z1;
 	f_tab[5] = template_Z2;
 	f_tab[6] = template_sqrt;
-	while (i < 6)
+	while (i < 7)
 	{
 		f = f_tab[i];
-		if (f(*validate))
+		if (f(validate))
 			return (1);
 		i++;
 	}

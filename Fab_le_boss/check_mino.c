@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 18:02:05 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/19 19:49:18 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/04/20 10:10:41 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int		main(int ac, char **av)
 	nb = nb_mino(buff);
 	//printf("%s\n", buff);
 	tab = ft_strsplit(buff, '$');
-	while (tab[i])
+	while (i <= 15)
 	{
 		if (check_str(tab[i]))
 			printf("%s\n", tab[i]);
@@ -118,14 +118,22 @@ int		main(int ac, char **av)
 	}
 	i = 0;
 	valid = (t_valid **)malloc(sizeof(t_valid *) * nb);
-	while (i < nb)
+	while (i <= 15)
 	{
 		valid[i] = mino_struct(tab[i]);
-		printf("valid[%d] %d%d %d%d %d%d %d%d\n", i, valid[i]->pos1[0], valid[i]->pos1[1], valid[i]->pos2[0], \
+		printf("valid[%d] %d%d %d%d %d%d %d%d\n", i, valid[i]->pos1[0], \
+				valid[i]->pos1[1], valid[i]->pos2[0], \
 				valid[i]->pos2[1], valid[i]->pos3[0], valid[i]->pos3[1], \
 				valid[i]->pos4[0], valid[i]->pos4[1]);
 		i++;
 	}
-	printf("valide ? %d", fun_tab(tab[0]));
+	i = 0;
+	while (tab[i])
+	{
+		printf("tab[%d] valide ? %d\n", i, fun_tab(tab[i]));
+		if (!fun_tab(tab[i]))
+			break ;
+		i++;
+	}
 	return (0);
 }
