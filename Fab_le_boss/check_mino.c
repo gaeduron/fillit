@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 18:02:05 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/20 14:32:04 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/04/20 14:41:19 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ int		main(int ac, char **av)
 		i++;
 	}
 	i = 0;
-	printf("\n");
+//	printf("\n");
 	/*while (tab[i])
 	{
 		printf("tab[%d] template n* %d\n", i, fun_tab(tab[i]));
