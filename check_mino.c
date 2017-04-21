@@ -6,11 +6,11 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 18:02:05 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/21 09:13:48 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/04/21 11:36:46 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fillit.h"
+#include "fillit.h"
 
 int		nb_mino(char *str)
 {
@@ -135,29 +135,3 @@ char	**checkin(char *mino, char *f_mino)
 	}
 	return (tab);
 }
-/*
-int		main(int ac, char **av)
-{
-	int		fd;
-	char	*buff;
-	char	*buff2;
-	char	**formated;
-	int		i;
-
-	i = 0;
-	buff = ft_strnew(5000);
-	buff2 = ft_strnew(5000);
-	fd = open(av[1], O_RDONLY);
-	read(fd, buff, 5000);
-	fd = open(av[2], O_RDONLY);
-	read(fd, buff2, 5000);
-	if (!(formated = checkin(buff, buff2)))
-		return (0);
-	while (formated[i])
-	{
-		printf("%s\n", formated[i]);
-		i++;
-	}
-	return (0);
-}
-*/
