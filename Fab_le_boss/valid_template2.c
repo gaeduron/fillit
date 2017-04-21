@@ -6,13 +6,13 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 17:01:21 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/20 17:04:42 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/04/20 19:26:03 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fillit.h"
 
-int		template_I(t_valid *mino)
+int		template_i(t_valid *mino)
 {
 	if ((MINO2[0] == MINO1[0] + 1 && MINO2[1] == MINO1[1])\
 			&& (MINO3[0] == MINO1[0] + 2 && MINO3[1] == MINO1[1])\
@@ -25,7 +25,7 @@ int		template_I(t_valid *mino)
 	return (0);
 }
 
-int		template_Z1(t_valid *mino)
+int		template_z1(t_valid *mino)
 {
 	if ((MINO2[0] == MINO1[0] && MINO2[1] == MINO1[1] + 1)\
 			&& (MINO3[0] == MINO1[0] + 1 && MINO3[1] == MINO1[1] + 1)\
@@ -38,8 +38,7 @@ int		template_Z1(t_valid *mino)
 	return (0);
 }
 
-
-int		template_Z2(t_valid *mino)
+int		template_z2(t_valid *mino)
 {
 	if ((MINO2[0] == MINO1[0] && MINO2[1] == MINO1[1] + 1)\
 			&& (MINO3[0] == MINO1[0] + 1 && MINO3[1] == MINO1[1] - 1)\

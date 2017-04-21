@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 09:49:13 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/20 17:11:14 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/04/21 08:20:24 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ typedef struct s_valid
 }				t_valid;
 
 
-int		template_I(t_valid *mino);
-int		template_Z1(t_valid *mino);
-int		template_Z2(t_valid *mino);
+int		template_i(t_valid *mino);
+int		template_z1(t_valid *mino);
+int		template_z2(t_valid *mino);
 int		template_sqrt(t_valid *mino);
 void	print_grid(t_env *env);
 void	print_tab(char **tab);
@@ -71,4 +71,5 @@ char	*fun_tab(char *str, char **formated);
 void	write_mino(t_tmino *mino, char **grid);
 int		init_grid(t_env *env);
 void	print_grid(t_env *env);
+char	**checkin(char *mino, char *f_mino);
 #endif
