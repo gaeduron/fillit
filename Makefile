@@ -53,7 +53,7 @@ $(NAME): $(SRC)
 
 clean:
 	@echo "Deleting:\033[33m $(LIB)/*.o\033[0m"
-	@rm -f *.o
+	@rm -f $(OBJ)
 	@make -C $(LIB)/ clean
 
 fclean: clean
