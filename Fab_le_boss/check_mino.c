@@ -6,14 +6,33 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 18:02:05 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/20 14:41:19 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/04/21 09:13:48 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
 #include "../fillit.h"
 
-#include <stdio.h>
+int		nb_mino(char *str)
+{
+	int nb;
+	int mino;
+
+	nb = 0;
+	mino = 1;
+	while (*str)
+	{
+		if (*str == '\n')
+			nb++;
+		if (nb == 5 && *(str + 1))
+		{
+			nb = 0;
+			*str = '$';
+			mino++;
+		}
+		str++;
+	}
+	return (mino);
+}
 
 int		*search_hash(char *str, int n)
 {
@@ -42,11 +61,11 @@ int		*search_hash(char *str, int n)
 
 t_valid	*mino_struct(char *str)
 {
-	t_valid *mino;
-	int *pos1;
-	int *pos2;
-	int *pos3;
-	int *pos4;
+	t_valid	*mino;
+	int		*pos1;
+	int		*pos2;
+	int		*pos3;
+	int		*pos4;
 
 	mino = (t_valid *)malloc(sizeof(t_valid));
 	pos1 = search_hash(str, 1);
@@ -90,75 +109,55 @@ int		check_str(char *str)
 	return (1);
 }
 
-int		main(int ac, char **av)
+char	**checkin(char *mino, char *f_mino)
 {
-	int fd;
-	int fd2;
-	int nb;
-	char *buff;
-	char *buff2;
-	char **tab;
-	char **tab2;
-	int **tab_int;
-	int i;
-	int j;
-	t_valid **valid;
+	int		i;
+	int		j;
+	char	**tab;
+	char	**tab2;
+	int		nb;
 
 	i = 0;
 	nb = 0;
-	fd = open(av[1], O_RDONLY);
-	fd2 = open(av[2], O_RDONLY);
+	nb = nb_mino(mino);
+	nb_mino(f_mino);
+	tab = ft_strsplit(mino, '$');
+	tab2 = ft_strsplit(f_mino, '$');
+	while (tab[i])
+	{
+		if (!check_str(tab[i]) || !fun_tab(tab[i], tab2))
+		{
+			ft_putstr("error\n");
+			return (0);
+		}
+		tab[i] = fun_tab(tab[i], tab2);
+		i++;
+	}
+	return (tab);
+}
+/*
+int		main(int ac, char **av)
+{
+	int		fd;
+	char	*buff;
+	char	*buff2;
+	char	**formated;
+	int		i;
+
+	i = 0;
 	buff = ft_strnew(5000);
 	buff2 = ft_strnew(5000);
+	fd = open(av[1], O_RDONLY);
 	read(fd, buff, 5000);
-	read(fd2, buff2, 5000);
-	//printf("%s\n", buff);
-	nb = nb_mino(buff);
-	nb_mino(buff2);
-	//printf("%s\n", buff);
-	tab = ft_strsplit(buff, '$');
-	tab2 = ft_strsplit(buff2, '$');
-	while (tab[i])
+	fd = open(av[2], O_RDONLY);
+	read(fd, buff2, 5000);
+	if (!(formated = checkin(buff, buff2)))
+		return (0);
+	while (formated[i])
 	{
-		if (check_str(tab[i]))
-			printf("%s\n", tab[i]);
+		printf("%s\n", formated[i]);
 		i++;
 	}
-	i = 0;
-	valid = (t_valid **)malloc(sizeof(t_valid *) * nb);
-	while (tab[i])
-	{
-		valid[i] = mino_struct(tab[i]);
-		/*printf("valid[%d] %d%d %d%d %d%d %d%d\n", i, valid[i]->pos1[0], \
-				valid[i]->pos1[1], valid[i]->pos2[0], \
-				valid[i]->pos2[1], valid[i]->pos3[0], valid[i]->pos3[1], \
-				valid[i]->pos4[0], valid[i]->pos4[1]);*/
-		i++;
-	}
-	i = 0;
-//	printf("\n");
-	/*while (tab[i])
-	{
-		printf("tab[%d] template n* %d\n", i, fun_tab(tab[i]));
-		if (!fun_tab(tab[i]))
-			break ;
-		i++;
-	}
-	i = 0;*/
-	printf("----------------------\n");
-	while (tab[i])
-	{
-		if (check_str(tab2[i]))
-			printf("%s\n", fun_tab(tab[i], tab2));
-		i++;
-	}
-	/*i = 0;
-	while (tab2[i])
-	{
-		printf("tab2[%d] template n* %d\n", i, fun_tab(tab2[i]));
-		if (!fun_tab(tab2[i]))
-			break ;
-		i++;
-	}*/
 	return (0);
 }
+*/

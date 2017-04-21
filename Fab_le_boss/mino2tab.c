@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 15:24:00 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/20 15:24:13 by narajaon         ###   ########.fr       */
+/*   Updated: 2017/04/21 09:14:12 by narajaon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int		nb_mino(char *str)
 /*
 void	write_mino(t_tmino *mino, char **grid)
 {
-	char **ptr;
-	int i;
-	int j;
+	char	**ptr;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
@@ -60,8 +60,8 @@ void	write_mino(t_tmino *mino, char **grid)
 
 t_tmino	**init_tab_tmino(char **tab, int mino_nbr)
 {
-	t_tmino **mino;
-	int i;
+	t_tmino	**mino;
+	int		i;
 
 	i = -1;
 	if (!(mino = (t_tmino **)malloc(sizeof(t_tmino *) * (mino_nbr + 1))))
