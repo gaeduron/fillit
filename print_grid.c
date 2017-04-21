@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 11:05:50 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/20 11:42:09 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/20 16:57:34 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	write_grid(t_tmino *tmino, char **grid, char *letter, int pos)
 	}
 }
 
-void    print_grid(t_env *env)
+void	print_grid(t_env *env)
 {
 	char	*letter;
 	int		i;

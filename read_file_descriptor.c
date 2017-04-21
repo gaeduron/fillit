@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 16:24:05 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/20 14:04:29 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/20 16:59:30 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ unsigned char	*read_loop(unsigned char *dest, unsigned char *buff,
 	return (dest);
 }
 
-char	*read_file_desctriptor(int fd)
+char			*read_file_desctriptor(int fd)
 {
 	unsigned char	*dest;
 	unsigned char	*buff;

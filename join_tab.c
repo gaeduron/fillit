@@ -1,44 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_fillit.c                                        :+:      :+:    :+:   */
+/*   join_tab.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/18 15:16:37 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/20 18:23:58 by gduron           ###   ########.fr       */
+/*   Created: 2017/04/20 17:52:25 by gduron            #+#    #+#             */
+/*   Updated: 2017/04/20 18:23:57 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	do_fillit(int fd, int ref)
+char	*join_tab(char **str_tab)
 {
-	char	**str_tab;
-	char	*str;
-	t_env	*env;
 	int		i;
+	char	*str;
+	char	*tmp;
 
-	i = -1;
-	str_tab = check_in(read_file_desctriptor(fd), read_file_desctriptor(ref));
-	if (!(str_tab))
+	i = 1;
+	while (str_tab[i - 1])
+		i++;
+	if (!(str = (char *)malloc(sizeof(char) * ((i * 21) + 1))))
+		    return (0);
+	i = 0;
+	while (str_tab[i])
 	{
-		write(1, "error\n", 6);
-		free(input_str);
-		return ;
-	}
-	str = join_tab(str_tab);
-	if (!(env = init_t_env(str)))
-	{
-		write(1, "error\n", 6);
-		return ;
+		tmp = ft_strjoin(str_tab[i], str);
+		free(str);
+		free(str_tab[i]);
+		str = tmp;
 	}
 	free(str_tab);
-	ft_searching(env);
-	if (!init_grid(env))
-		return ;
-	print_grid(env);
-	ft_putchartab(env->grid, 't');
-	free_env(env);
-	return ;
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 10:30:56 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/20 14:52:39 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/20 16:56:24 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,14 @@ void	save_solution(t_env *env)
 	int i;
 
 	i = -1;
-//	printf("best_size = %d\n", env->best_size);
 	if (env->best_size == 0)
 	{
 		while (env->tab_tmino[++i])
 		{
-//			printf("best_x = %d || best_y = %d\n", env->tab_tmino[i]->x, env->tab_tmino[i]->y);
 			env->tab_tmino[i]->best_x = env->tab_tmino[i]->x;
 			env->tab_tmino[i]->best_y = env->tab_tmino[i]->y;
 		}
 		env->best_size = env->grid_size;
-//		printf("best_size = %d\n", env->best_size);
 	}
 }
 
@@ -43,9 +40,7 @@ void	recursive_search(t_env *env, int pos)
 		env->tab_tmino[pos]->y = j;
 		while (++i < env->grid_size && !env->best_size)
 		{
-//			printf("grid_size = %d and pos = %d\n", env->grid_size, pos);
 			env->tab_tmino[pos]->x = i;
-//			printf("i = %d && j = %d\n", i, j);
 			if (no_collision(env->tab_tmino, pos, env->grid_size))
 			{
 				if (env->tab_tmino[pos + 1])

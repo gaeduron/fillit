@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_t_env.c                                       :+:      :+:    :+:   */
+/*   free_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/18 13:22:30 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/20 17:47:38 by gduron           ###   ########.fr       */
+/*   Created: 2017/04/20 17:11:07 by gduron            #+#    #+#             */
+/*   Updated: 2017/04/20 17:31:46 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_env	*init_t_env(char *str)
+void	free_str_tab(char **tab)
 {
-	t_env	*env;
+	int i;
 
-	if (!(env = (t_env*)malloc(sizeof(t_env))))
-		return (0);
-	if (!(env->tab_tmino = str_to_tab_tmino(str)))
-		return (0);
-	env->grid = 0;
-	env->grid_size = 2;
-	env->best_size = 0;
-	return (env);
+	i = -1;
+	while (tab[++i])
+		free(tab[i]);
+	free(tab);
+}
+
+void	free_tab_tmino(t_tmino tmino)
+{
+	free_str_tab(tmino->str);
+	free(tmino);
+}
+
+void	free_env(t_env *env)
+{
+	free_tab_tmino(env->tab_tmino);
+	free_str_tab(env->grid);
+	free(env);
 }

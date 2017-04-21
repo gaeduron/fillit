@@ -6,13 +6,13 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 13:01:44 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/18 14:34:02 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/20 17:48:25 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_tmino		*init_t_tmino(char **str)
+t_tmino		*init_t_tmino(char *str)
 {
 	t_tmino *elem;
 

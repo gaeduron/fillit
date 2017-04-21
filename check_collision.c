@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 10:47:31 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/20 14:52:55 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/20 16:43:43 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static int	check_inter(t_tmino *prev, t_tmino *curr)
 	j = 0;
 	while (i <= (3 - prev->offset_x) && j <= (3 - prev->offset_y))
 	{
-//		printf("i = %d && j = %d || i_x = %d && i_y = %d\n", i, j, curr->i_y, curr->i_x + i);
 		if (prev->str[prev->i_y + j][prev->i_x + i] == \
 				curr->str[curr->i_y + j][curr->i_x + i] \
 				&& curr->str[curr->i_y + j][curr->i_x + i] == '#')
@@ -34,7 +33,6 @@ static int	check_inter(t_tmino *prev, t_tmino *curr)
 			i = 0;
 			j++;
 		}
-//		printf("\ni = %d and j = %d\n", i, j);
 	}
 	return (0);
 }
@@ -57,21 +55,16 @@ int			out_of_the_grid(t_tmino *tmino, int size)
 
 	i = 0;
 	sol = 0;
-	//	printf("out\n");
-	//	printf("size = %d || x =%d \n", size, tmino->x);
 	while (((size - tmino->x <= 3) || (size - tmino->y <= 3)) && i < 4)
 	{
-		//		printf("i = %d\n", i);
 		if (size - tmino->x <= 3)
 		{
-			//			printf("OUTX\n");
 			sol = tmino->str[i][size - tmino->x] == '#' ? 1 : 0;
 			if (sol == 1)
 				return (1);
 		}
 		if (size - tmino->y <= 3)
 		{
-			//			printf("OUTY\n");
 			sol = tmino->str[size - tmino->y][i] == '#' ? 1 : 0;
 			if (sol == 1)
 				return (1);
@@ -80,9 +73,6 @@ int			out_of_the_grid(t_tmino *tmino, int size)
 	}
 	return (0);
 }
-
-
-
 
 int			no_collision(t_tmino **tab_tmino, int pos, int size)
 {
@@ -93,7 +83,6 @@ int			no_collision(t_tmino **tab_tmino, int pos, int size)
 	i = 0;
 	while (i < pos || i == 0)
 	{
-//		printf("str = %s\n", tab_tmino[pos]->str[0]);
 		offset_x = tab_tmino[pos]->x - tab_tmino[i]->x;
 		offset_y = tab_tmino[pos]->y - tab_tmino[i]->y;
 		if (out_of_the_grid(tab_tmino[pos], size))
@@ -110,6 +99,5 @@ int			no_collision(t_tmino **tab_tmino, int pos, int size)
 			i++;
 		}
 	}
-//	printf("jtaibz\n");
 	return (1);
 }

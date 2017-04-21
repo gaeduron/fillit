@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 18:01:15 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/20 15:13:50 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/20 17:01:22 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int		nb_mino(char *str)
 
 t_tmino	**init_tab_tmino(char **tab, int mino_nbr)
 {
-	t_tmino **mino;
-	int i;
+	t_tmino	**mino;
+	int		i;
 
 	i = -1;
 	if (!(mino = (t_tmino **)malloc(sizeof(t_tmino *) * (mino_nbr + 1))))
