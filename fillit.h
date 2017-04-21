@@ -6,14 +6,13 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 09:49:13 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/21 11:11:25 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/21 11:39:25 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 # include "libft/libft.h"
-#include <stdio.h>
 
 # define MINO1 mino->pos1
 # define MINO2 mino->pos2
