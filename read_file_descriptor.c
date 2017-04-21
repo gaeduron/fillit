@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 16:24:05 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/20 16:59:30 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/21 11:12:50 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ unsigned char	*read_loop(unsigned char *dest, unsigned char *buff,
 	unsigned int i;
 
 	buff[ret] = '\0';
-	dest = ft_strjoin(dest, buff);
+	dest = (unsigned char*)ft_strjoin((char *)dest, (char *)buff);
 	i = 0;
 	while (i < ret)
 	{

@@ -6,26 +6,26 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 18:01:15 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/20 17:01:22 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/21 10:06:17 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		nb_mino(char *str)
+int		nbr_mino(char *str)
 {
-	int nb;
+	int nbr;
 	int mino;
 
-	nb = 1;
+	nbr = 1;
 	mino = 1;
 	while (*str)
 	{
 		if (*str == '\n')
-			nb++;
-		if (nb == 5 && *(str + 1))
+			nbr++;
+		if (nbr == 5 && *(str + 1))
 		{
-			nb = 0;
+			nbr = 0;
 			*str = '$';
 			mino++;
 		}
@@ -55,7 +55,7 @@ t_tmino	**str_to_tab_tmino(char *str)
 	int		mino_nbr;
 	int		fd;
 
-	mino_nbr = nb_mino(str);
+	mino_nbr = nbr_mino(str);
 	tab = ft_strsplit(str, '$');
 	tab_t_tmino = init_tab_tmino(tab, mino_nbr);
 	return (tab_t_tmino);

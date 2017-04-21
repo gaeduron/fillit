@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 09:49:13 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/21 09:30:13 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/21 11:11:25 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,17 @@ typedef struct	s_valid
 	int			pos4[2];
 }				t_valid;
 
-<<<<<<< HEAD
+int				template_i(t_valid *mino);
+int				template_z1(t_valid *mino);
+int				template_z2(t_valid *mino);
+int				template_sqrt(t_valid *mino);
 void			print_grid(t_env *env);
 void			print_tab(char **tab);
 t_tmino			**str_to_tab_tmino(char *input_str);
 t_env			*init_t_env(char *input_str);
-t_tmino			*init_t_tmino(char **str);
+t_tmino			*init_t_tmino(char *str);
 void			files_manager(int ac, char **av);
-void			do_fillit(int fd);
+void			do_fillit(int fd, int ref);
 void			ft_searching(t_env *env);
 char			*read_file_desctriptor(int fd);
 void			ft_putchartab(char **tab, char format);
@@ -67,29 +70,7 @@ char			*fun_tab(char *str, char **formated);
 void			write_mino(t_tmino *mino, char **grid);
 int				init_grid(t_env *env);
 void			print_grid(t_env *env);
-=======
-
-int		template_i(t_valid *mino);
-int		template_z1(t_valid *mino);
-int		template_z2(t_valid *mino);
-int		template_sqrt(t_valid *mino);
-void	print_grid(t_env *env);
-void	print_tab(char **tab);
-t_tmino	**str_to_tab_tmino(char *input_str);
-t_env	*init_t_env(char *input_str);
-t_tmino	*init_t_tmino(char **str);
-void	files_manager(int ac, char **av);
-void	do_fillit(int fd);
-void	ft_searching(t_env *env);
-char	*read_file_desctriptor(int fd);
-void	ft_putchartab(char **tab, char format);
-int		no_collision(t_tmino **tab_tmino, int pos, int size);
-int		nb_mino(char *str);
-t_valid	*mino_struct(char *str);
-char	*fun_tab(char *str, char **formated);
-void	write_mino(t_tmino *mino, char **grid);
-int		init_grid(t_env *env);
-void	print_grid(t_env *env);
-char	**checkin(char *mino, char *f_mino);
->>>>>>> 968d64fe581f4bb9e07aabb1165ba349403e493f
+char			**checkin(char *mino, char *f_mino);
+char			*join_tab(char **str_tab);
+void			free_env(t_env *env);
 #endif
