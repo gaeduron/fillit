@@ -63,3 +63,5 @@ fclean: clean
 	@rm -f $(LIB)/$(LIB).a
 
 re: fclean all
+
+.PHONY: clean fclean re
