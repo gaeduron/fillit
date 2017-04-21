@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 18:02:05 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/21 16:56:09 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/21 17:04:23 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_valid	*mino_struct(char *str)
 	int		*pos3;
 	int		*pos4;
 
-	if (!(mino = (t_valid *)malloc(sizeof(t_valid)))
+	if (!(mino = (t_valid *)malloc(sizeof(t_valid))))
 		exit (0);
 	pos1 = search_hash(str, 1);
 	pos2 = search_hash(str, 2);
