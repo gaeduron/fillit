@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 18:01:15 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/21 10:06:17 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/21 11:50:36 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ t_tmino	**str_to_tab_tmino(char *str)
 	char	**tab;
 	t_tmino	**tab_t_tmino;
 	int		mino_nbr;
-	int		fd;
 
 	mino_nbr = nbr_mino(str);
 	tab = ft_strsplit(str, '$');

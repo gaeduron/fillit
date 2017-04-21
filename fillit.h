@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 09:49:13 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/21 11:39:25 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/21 13:49:50 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_tmino			**str_to_tab_tmino(char *input_str);
 t_env			*init_t_env(char *input_str);
 t_tmino			*init_t_tmino(char *str);
 void			files_manager(int ac, char **av);
-void			do_fillit(int fd, int ref);
+void			do_fillit(int fd);
 void			ft_searching(t_env *env);
 char			*read_file_desctriptor(int fd);
 void			ft_putchartab(char **tab, char format);
@@ -72,4 +72,5 @@ void			print_grid(t_env *env);
 char			**checkin(char *mino, char *f_mino);
 char			*join_tab(char **str_tab);
 void			free_env(t_env *env);
+char			*read_ref(void);
 #endif

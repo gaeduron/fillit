@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 17:52:25 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/21 11:08:46 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/21 11:50:15 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*join_tab(char **str_tab)
 	int		i;
 	int		len;
 	char	*str;
-	char	*tmp;
 
 	len = 1;
 	while (str_tab[len - 1])

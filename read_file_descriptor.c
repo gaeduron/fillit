@@ -6,14 +6,14 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 16:24:05 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/21 11:12:50 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/21 11:49:21 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
 unsigned char	*read_loop(unsigned char *dest, unsigned char *buff,
-					unsigned long ret, int *test)
+					unsigned long ret)
 {
 	unsigned int i;
 
@@ -37,9 +37,7 @@ char			*read_file_desctriptor(int fd)
 	unsigned char	*buff;
 	unsigned long	ret;
 	unsigned long	i;
-	int				test;
 
-	test = 0;
 	i = 1;
 	if (!(dest = (unsigned char *)malloc(sizeof(unsigned char) * 1)))
 		return (0);
@@ -48,7 +46,7 @@ char			*read_file_desctriptor(int fd)
 		return (0);
 	while ((ret = read(fd, buff, 600)) > 0)
 	{
-		dest = read_loop(dest, buff, ret, &test);
+		dest = read_loop(dest, buff, ret);
 		if (dest == 0)
 		{
 			free(buff);

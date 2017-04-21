@@ -6,7 +6,7 @@
 /*   By: narajaon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/17 18:02:05 by narajaon          #+#    #+#             */
-/*   Updated: 2017/04/21 11:36:46 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/21 14:43:04 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,13 +112,16 @@ int		check_str(char *str)
 char	**checkin(char *mino, char *f_mino)
 {
 	int		i;
-	int		j;
 	char	**tab;
 	char	**tab2;
 	int		nb;
 
 	i = 0;
 	nb = 0;
+	if (!mino || !f_mino)
+		return (0);
+	if (*mino == '\0')
+		return (0);
 	nb = nb_mino(mino);
 	nb_mino(f_mino);
 	tab = ft_strsplit(mino, '$');
@@ -126,10 +129,7 @@ char	**checkin(char *mino, char *f_mino)
 	while (tab[i])
 	{
 		if (!check_str(tab[i]) || !fun_tab(tab[i], tab2))
-		{
-			ft_putstr("error\n");
 			return (0);
-		}
 		tab[i] = fun_tab(tab[i], tab2);
 		i++;
 	}

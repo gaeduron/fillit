@@ -6,7 +6,7 @@
 /*   By: gduron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 15:16:37 by gduron            #+#    #+#             */
-/*   Updated: 2017/04/21 11:22:30 by gduron           ###   ########.fr       */
+/*   Updated: 2017/04/21 14:07:40 by gduron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	free_all(char *str, char **tab, t_env *env)
 	return ;
 }
 
-void	do_fillit(int fd, int ref)
+void	do_fillit(int fd)
 {
 	char	**str_tab;
 	char	*str;
@@ -28,7 +28,7 @@ void	do_fillit(int fd, int ref)
 	int		i;
 
 	i = -1;
-	str_tab = checkin(read_file_desctriptor(fd), read_file_desctriptor(ref));
+	str_tab = checkin(read_file_desctriptor(fd), read_ref());
 	if (!(str_tab))
 	{
 		write(1, "error\n", 6);

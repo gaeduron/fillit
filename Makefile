@@ -16,6 +16,23 @@ LIB = libft
 
 SRC = \
 main.c \
+files_manager.c \
+do_fillit.c \
+read_file_descriptor.c \
+check_mino.c \
+valid_template.c \
+valid_template2.c \
+join_tab.c \
+init_t_env.c \
+init_t_tmino.c \
+init_grid.c \
+str_to_tab_tmino.c \
+ft_searching.c \
+check_collision.c \
+print_grid.c \
+ft_putchartab.c \
+free_env.c \
+read_ref.c
 
 CC = -Wall -Werror -Wextra
 
@@ -28,8 +45,9 @@ VPATH = .
 all: $(NAME)
 
 $(NAME): $(SRC)
-	@echo "Compiling $(LIB)..."
+	@echo "Compiling \033[92m$(LIB)\033[0m..."
 	@make -C $(LIB)/
+	@echo "Compiling \033[92m$(NAME)\033[0m..."
 	@gcc -o $(NAME) $^ $(CC) -I $(HEADER) -L $(LIB)/ -lft
 	@echo "Fillit compilation:\033[92m OK\033[0m"
 
